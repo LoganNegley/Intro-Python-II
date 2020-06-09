@@ -1,7 +1,7 @@
 import random
 
 def guessing_game():
-  print("Guess the number!")
+  print("Guess the number!"
 
   secret_number = random.randrange(101)
 
