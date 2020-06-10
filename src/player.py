@@ -6,4 +6,4 @@ class Player:
         self.current_room = current_room
 
     def __str__(self):
-            return f"{self.name} Lets get started. Your current room is {self.current_room}"
+            return f"{self.name}, Lets get started.\n Your current room is {self.current_room}"

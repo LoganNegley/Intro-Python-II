@@ -39,8 +39,8 @@ room['treasure'].s_to = room['narrow']
 #
 
 # Make a new player object that is currently in the 'outside' room.
-gameStart = Player(input("What is your name?"), room['outside'])
-print(gameStart)
+player = Player(input("What is your name? "), room['outside'])
+print(player)
 
 # Write a loop that:
 #
@@ -52,3 +52,7 @@ print(gameStart)
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
+
+playerDirection = input(f'What direction would you like to go in? (n, e, s, w) ')
+print(playerDirection)
+
