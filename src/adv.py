@@ -39,8 +39,8 @@ room['treasure'].s_to = room['narrow']
 #
 
 # Make a new player object that is currently in the 'outside' room.
-player = Player(input("What is your name? "), room['outside'])
-print(player)
+playerOne = Player(input("What is your name? "), room['outside'])
+print(playerOne)
 
 # Write a loop that:
 #
@@ -53,6 +53,33 @@ print(player)
 #
 # If the user enters "q", quit the game.
 
-playerDirection = input(f'What direction would you like to go in? (n, e, s, w) ')
-print(playerDirection)
 
+print('Press q to quit')
+# print(room['outside'].n_to)
+
+
+while True:
+    choice = input('What direction would you like to go in? (n, e, s, w) ')
+    try:
+        if(choice == 'q'):
+            break
+        if choice == 'n':
+            if playerOne.current_room.n_to:
+                playerOne.current_room = playerOne.current_room.n_to
+                print(playerOne)
+        if(choice == 'e'):
+            if playerOne.current_room.e_to:
+                playerOne.current_room = playerOne.current_room.e_to
+                print(playerOne)
+        if(choice == 's'):
+            if playerOne.current_room.s_to:
+                playerOne.current_room = playerOne.current_room.s_to
+                print(playerOne)
+        if(choice == 'w'):
+            if playerOne.current_room.w_to:
+                playerOne.current_room = playerOne.current_room.w_to
+                print(playerOne)
+
+
+    except ValueError:
+        print('Please enter a valid direction')
