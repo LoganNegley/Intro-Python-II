@@ -10,4 +10,5 @@ class Player:
 
     def move(self, room):
         self.current_room = room
+        return room
 
