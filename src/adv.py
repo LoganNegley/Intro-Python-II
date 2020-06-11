@@ -22,6 +22,9 @@ chamber! Sadly, it has already been completely emptied by
 earlier adventurers. The only exit is to the south."""),
 }
 
+# print(room['outside'].description)
+
+
 
 # Link rooms together
 
@@ -39,14 +42,17 @@ room['treasure'].s_to = room['narrow']
 #
 
 # Make a new player object that is currently in the 'outside' room.
-playerOne = Player(input("What is your name? "), room['outside'])
+playerOne = Player('Logan', room['outside'])
 print(playerOne)
+
 
 # Write a loop that:
 #
 # * Prints the current room name
 # * Prints the current description (the textwrap module might be useful here).
 # * Waits for user input and decides what to do.
+
+choice = input('What direction would you like to go? ')
 #
 # If the user enters a cardinal direction, attempt to move to the room there.
 # Print an error message if the movement isn't allowed.
@@ -54,32 +60,32 @@ print(playerOne)
 # If the user enters "q", quit the game.
 
 
-print('Press q to quit')
+# print('Press q to quit')
 # print(room['outside'].n_to)
 
 
-while True:
-    choice = input('What direction would you like to go in? (n, e, s, w) ')
-    try:
-        if(choice == 'q'):
-            break
-        if choice == 'n':
-            if playerOne.current_room.n_to:
-                playerOne.current_room = playerOne.current_room.n_to
-                print(playerOne)
-        if(choice == 'e'):
-            if playerOne.current_room.e_to:
-                playerOne.current_room = playerOne.current_room.e_to
-                print(playerOne)
-        if(choice == 's'):
-            if playerOne.current_room.s_to:
-                playerOne.current_room = playerOne.current_room.s_to
-                print(playerOne)
-        if(choice == 'w'):
-            if playerOne.current_room.w_to:
-                playerOne.current_room = playerOne.current_room.w_to
-                print(playerOne)
+# while True:
+#     choice = input('What direction would you like to go in? (n, e, s, w) ')
+#     try:
+#         if(choice == 'q'):
+#             break
+#         if choice == 'n':
+#             if playerOne.current_room.n_to:
+#                 playerOne.current_room = playerOne.current_room.n_to
+#                 print(playerOne)
+#         if(choice == 'e'):
+#             if playerOne.current_room.e_to:
+#                 playerOne.current_room = playerOne.current_room.e_to
+#                 print(playerOne)
+#         if(choice == 's'):
+#             if playerOne.current_room.s_to:
+#                 playerOne.current_room = playerOne.current_room.s_to
+#                 print(playerOne)
+#         if(choice == 'w'):
+#             if playerOne.current_room.w_to:
+#                 playerOne.current_room = playerOne.current_room.w_to
+#                 print(playerOne)
 
 
-    except ValueError:
-        print('Please enter a valid direction')
+#     except ValueError:
+#         print('Please enter a valid direction')
