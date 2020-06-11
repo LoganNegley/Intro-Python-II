@@ -47,42 +47,28 @@ room['treasure'].s_to = room['narrow']
 
 # print(room['outside'].description)
 
-playerOne = Player('Logan', room['outside'])
+print('Press q to quit')# gives player option to quit game
+
+playerOne = Player('Logan', room['outside']) #new player
 print(playerOne)
 
-print('Press q to quit')# gives player option to quit game
-direction = ('n', 'e', 's', 'w')
+direction = ('n', 'e', 's', 'w') #possible directions
 
 start = True
-
 while start:
     choice = input('What direction would you like to go? ')
-    p_direction = getattr(playerOne.current_room, f'{choice}_to')#checks to see if attribute is present in current room player is in
-    playerMove = playerOne.move(p_direction) #moves my player to a different room 
-    if(choice == 'q'):
+
+    if choice == 'q':
         start = False
-    if choice in direction:
-        if p_direction != None:
-            playerMove
-
-
-
-
-
-
-
-                
-        # if(choice == 'e'):
-        #     if playerOne.current_room.e_to:
-        #         playerOne.current_room = playerOne.current_room.e_to
-        #         print(playerOne)
-        # if(choice == 's'):
-        #     if playerOne.current_room.s_to:
-        #         playerOne.current_room = playerOne.current_room.s_to
-        #         print(playerOne)
-        # if(choice == 'w'):
-        #     if playerOne.current_room.w_to:
-        #         playerOne.current_room = playerOne.current_room.w_to
-        #         print(playerOne)
+        print('Thank you for playing')
+    else:
+        p_direction = getattr(playerOne.current_room, f'{choice}_to')#checks to see if attribute is present in current room player is in
+        playerMove = playerOne.move(p_direction) #moves my player to a different room 
+        if choice in direction:
+            if p_direction is not None:
+                playerMove
+                print(playerOne)
+            elif p_direction == None:
+                print('Sorry you can not go that way')
 
 

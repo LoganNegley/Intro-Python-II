@@ -10,4 +10,4 @@ class Room:
         self.w_to = None
         # or should n e s w be none and adv file making the decision based on the room name?
     def __str__(self):
-        return f"In the {self.name}: {self.description}"
+        return f"{self.name}: {self.description}"
