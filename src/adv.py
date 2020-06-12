@@ -1,5 +1,6 @@
 from room import Room
 from player import Player
+from item import Item
 
 # Declare all the rooms
 room = {
@@ -32,6 +33,10 @@ room['narrow'].w_to = room['foyer']
 room['narrow'].n_to = room['treasure']
 room['treasure'].s_to = room['narrow']
 
+#Items in room 
+room['outside'].items.append(Item('knife', 'A dull knife sticking out of the dirt'))
+print(room['outside'].items)
+
 # Main
 
 # Make a new player object that is currently in the 'outside' room.
@@ -61,13 +66,13 @@ while start:
         start = False
         print('Thank you for playing')
     else:
-        p_direction = getattr(playerOne.current_room, f'{choice}_to')#checks to see if attribute is present in current room player is in
-        playerMove = playerOne.move(p_direction) #moves my player to a different room 
         if choice in direction:
+            p_direction = getattr(playerOne.current_room, f'{choice}_to')#checks to see if attribute is present in current room player is in
             if p_direction is not None:
-                playerMove
+                playerOne.move(p_direction) #moves my player to a different room 
                 print(playerOne)
             elif p_direction == None:
                 print('Sorry you can not go that way')
+                print(playerOne.current_room)
 
 

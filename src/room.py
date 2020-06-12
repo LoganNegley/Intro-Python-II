@@ -8,6 +8,7 @@ class Room:
         self.e_to = None
         self.s_to = None
         self.w_to = None
+        self.items = []
         # or should n e s w be none and adv file making the decision based on the room name?
     def __str__(self):
         return f"{self.name}: {self.description}"
